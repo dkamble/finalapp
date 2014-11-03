@@ -3,8 +3,32 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.7'
+
+group :production do 
+   gem "rails_12factor" 
+   gem "pg" 
+end 
+
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+group :development, :test do  
+ gem "sqlite3" 
+  # Helpful gems  
+ gem "better_errors" # improves error handling 
+ gem "binding_of_caller" # used by better errors 
+
+# Testing frameworks 
+ gem 'rspec-rails' # testing framework 
+ gem "factory_girl_rails" # use factories, not fixtures 
+ gem "capybara" # simulate browser activity 
+ gem "fakeweb"
+
+ # Automated testing  
+gem 'guard' # automated execution of test suite upon change  
+gem "guard-rspec" # guard integration with rspec 
+
+
+
+end 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 gem "execjs" 
